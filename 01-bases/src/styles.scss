@@ -24,7 +24,7 @@ dd {
 }
 
 button {
-  background-color: black;
+  background-color: $black-bg;
   border-radius: 5px;
   border: 0px;
   color: white;
@@ -32,10 +32,16 @@ button {
   margin-right: 5px;
   margin-left: 5px;
   padding: 5px 10px;
+  &:disabled  {
+    background-color: $lite-gray;
+    &:hover {
+      background-color: $lite-gray;
+    }
+  }
 }
 
 button:hover {
-  background-color: #3e4144;
+  background-color: $gray-bg;
 }
 
 button:focus{ 
