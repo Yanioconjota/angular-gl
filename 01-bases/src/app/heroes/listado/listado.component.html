@@ -1,1 +1,30 @@
-<p>listado works!</p>
+<h1>{{ titulo }}</h1>
+
+<ul *ngFor="let hero of heroes; let i = index">
+  <li>
+    {{ i + 1}} - Nombre: {{ hero.name }} | Alter ego: {{ hero.alterEgo }}
+    <button (click)="borrarHeroe(i)">X</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="reset()">Reset</button>
+  <button [disabled]="heroes.length === 0" (click)="borrarUltimoHeroe()">Borrar héroe</button>
+  <span *ngIf="heroeBorrado !== ''; else noBorrado">
+    <small>Borraste a: {{ heroeBorrado }}</small>
+  </span>
+  <ng-template #noBorrado>
+    😎
+  </ng-template>
+  
+</div>
+
+<div *ngIf="heroesBorrados.length > 0">
+  <h3>Héroes borrados</h3>
+  <ul *ngFor="let hero of heroesBorrados; let j = index">
+    <li>
+      {{ j + 1}} - Nombre: {{ hero.name }} | Alter ego: {{ hero.alterEgo }}
+    </li>
+  </ul>
+</div>
+
