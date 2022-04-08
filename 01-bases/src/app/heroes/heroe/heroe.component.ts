@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from 'src/app/models/heroe.model';
 
-export interface Heroe {
-  nombre: string;
-  edad: number;
-}
 @Component({
   selector: 'app-heroe',
   templateUrl: './heroe.component.html',
@@ -13,23 +10,23 @@ export interface Heroe {
 export class HeroeComponent {
 
   value = 0;
-  nombre: string = 'Ironman';
-  edad: number = 45;
+  name: string = 'Ironman';
+  age: number = 45;
 
   
 
-  heroes: Heroe[] = [
-    {nombre: 'Ironman', edad: 45},
-    {nombre: 'Captain America', edad: 75},
-    {nombre: 'Spider-man', edad: 17}
+  heroes: Hero[] = [
+    {name: 'Ironman', age: 45},
+    {name: 'Captain America', age: 75},
+    {name: 'Spider-man', age: 17}
   ];
 
   get nombreCapitalizado():string {
-    return this.nombre.toUpperCase();
+    return this.name.toUpperCase();
   }
 
   obtenerNombre ():string {
-    return `${this.nombre} - ${this.edad}`;
+    return `${this.name} - ${this.age}`;
   }
 
   cambiarHeroe():void {
@@ -39,8 +36,8 @@ export class HeroeComponent {
    } else {
     this.value = this.value + 1
   }
-  this.nombre = this.heroes[this.value].nombre;
-  this.edad = this.heroes[this.value].edad;
+  this.name = this.heroes[this.value].name;
+  this.age = this.heroes[this.value].age;
    
   }
 
