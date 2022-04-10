@@ -22,4 +22,6 @@ my **launch.json** file looks like this:
 ```
 **url** sets the debugger port and **webRoot** is used to set up your angular project root folder.
 
+Then just add your breakpoit in your **ts/js** files.
+
 ### 😎 Happy coding
