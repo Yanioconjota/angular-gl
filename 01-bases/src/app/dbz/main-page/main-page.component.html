@@ -4,12 +4,10 @@
 <!-- dbzFighterZ es un array personajes dbzFighter -->
 <div class="row">
   <div class="col">
-    <app-fighterz [dbzFighterZ]="dbzFighterZ"></app-fighterz>
+    <app-fighterz></app-fighterz>
   </div>
   <div class="col">
-    <app-add-new [dbzFighter]="dbzFighter"
-                 (onAddNewDbzFighter)="addNewDbzFighter($event)"
-                 (onReset)="reset()">
+    <app-add-new>
     </app-add-new>
   </div>
 </div>

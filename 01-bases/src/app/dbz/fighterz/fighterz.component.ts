@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DbzFighter } from 'src/app/interfaces/dbz.interface';
+import { DbzService } from '../services/dbz.services';
 
 @Component({
   selector: 'app-fighterz',
@@ -9,6 +10,12 @@ import { DbzFighter } from 'src/app/interfaces/dbz.interface';
 })
 export class FighterzComponent {
 
-  @Input() dbzFighterZ: DbzFighter[] = [];
+  //@Input() dbzFighterZ: DbzFighter[] = [];
+
+  get dbzFighterZ() {
+    return this.dbzService.dbzFighterZ;
+  }
+
+  constructor( private dbzService: DbzService) {}
 
 }

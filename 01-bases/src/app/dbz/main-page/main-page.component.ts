@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DbzFighter } from '../../interfaces/dbz.interface';
+import { DbzService } from '../services/dbz.services';
 
 @Component({
   selector: 'app-main-page',
@@ -9,22 +10,9 @@ import { DbzFighter } from '../../interfaces/dbz.interface';
 })
 export class MainPageComponent {
 
-  originalRoster: DbzFighter[] = [
-    {
-      name: 'Goku',
-      power: 15000,
-    },
-    {
-      name: 'Vegeta',
-      power: 9000,
-    },
-    {
-      name: 'Krillin',
-      power: 8500,
-    }
-  ];
-
-  dbzFighterZ: DbzFighter[] = [...this.originalRoster];
+  /* Se puede refactorizar usando un getter
+  originalRoster: DbzFighter[] = this.dbzService.originalRoster; 
+  */
 
   titulo: string = 'Dragon Ball Z';
 
@@ -33,16 +21,6 @@ export class MainPageComponent {
     power: 0,
   };
 
-  reset() {
-    this.dbzFighterZ = [...this.originalRoster];
-    this.dbzFighter = {
-      name: '',
-      power: 0,
-    }
-  }
-
-  addNewDbzFighter(newDbzFighter: DbzFighter) {
-    this.dbzFighterZ.push(newDbzFighter);
-  };
+  constructor() {}
 
 }
