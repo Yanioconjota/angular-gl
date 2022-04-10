@@ -32,4 +32,8 @@ export class AddNewComponent {
     }
   };
 
+  reset() {
+    this.dbzService.reset();
+  }
+
 }

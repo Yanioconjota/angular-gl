@@ -5,7 +5,7 @@ import { DbzFighter } from "src/app/interfaces/dbz.interface";
 export class DbzService {
 
   //lo convertimos en privado con la palabra reservada private y por convención agregamos el guión bajo como prefijo
-  private _originalRoster: DbzFighter[] = [
+  private _dbzFighterZ: DbzFighter[] = [
     {
       name: 'Goku',
       power: 15000,
@@ -20,10 +20,12 @@ export class DbzService {
     }
   ];
 
+  snapshot: DbzFighter[] = [...this._dbzFighterZ];
+
   //retornamos un array nuevo con el contenido privado, este es accesible dentro de este servicio
 
   get dbzFighterZ(): DbzFighter[] {
-    return [...this._originalRoster];
+    return [...this._dbzFighterZ];
   }
 
   constructor() {
@@ -32,6 +34,10 @@ export class DbzService {
 
   //pusheamos al array privado y es el getter quien se encarga de redibujarlo al momento de que se actualice
   addNewDbzFighter(newDbzFighter: DbzFighter) {
-    this._originalRoster.push(newDbzFighter);
+    this._dbzFighterZ.push(newDbzFighter);
   };
+
+  reset() {
+    this._dbzFighterZ = [...this.snapshot];
+  }
 }
