@@ -1,27 +1,15 @@
 <h1>{{ titulo }}</h1>
 <hr>
-
+<!-- dbzFighter es un objeto con un personaje de dbz -->
+<!-- dbzFighterZ es un array personajes dbzFighter -->
 <div class="row">
   <div class="col">
     <app-fighterz [dbzFighterZ]="dbzFighterZ"></app-fighterz>
   </div>
   <div class="col">
-    <h3>Agregar {{ dbzFighter.name }}</h3>
-    <hr />
-
-    <form (ngSubmit)="agregar()" class="mt-2">
-      <input type="text"
-             placeholder="Nombre"
-             name="name"
-             [(ngModel)]="dbzFighter.name">
-
-      <input type="number"
-             placeholder="Poder"
-             name="power"
-             [(ngModel)]="dbzFighter.power">
-
-      <button type="submit">Agregar</button>
-      <button type="button" (click)="reset()">Reset</button>
-    </form>
+    <app-add-new [dbzFighter]="dbzFighter"
+                 (onAddNewDbzFighter)="addNewDbzFighter($event)"
+                 (onReset)="reset()">
+    </app-add-new>
   </div>
 </div>

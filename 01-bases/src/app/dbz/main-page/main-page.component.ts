@@ -33,16 +33,6 @@ export class MainPageComponent {
     power: 0,
   };
 
-  agregar() {
-    if (this.dbzFighter.name.trim().length === 0) { return }
-
-    this.dbzFighterZ.push(this.dbzFighter);
-    this.dbzFighter = {
-      name: '',
-      power: 0,
-    }
-  };
-
   reset() {
     this.dbzFighterZ = [...this.originalRoster];
     this.dbzFighter = {
@@ -50,5 +40,9 @@ export class MainPageComponent {
       power: 0,
     }
   }
+
+  addNewDbzFighter(newDbzFighter: DbzFighter) {
+    this.dbzFighterZ.push(newDbzFighter);
+  };
 
 }
