@@ -24,4 +24,9 @@ my **launch.json** file looks like this:
 
 Then just add your breakpoit in your **ts/js** files.
 
+---
+
+### Deployed examples:
+[angular-bases](http://janioisacura.com/bases-angular/)
+
 ### 😎 Happy coding
