@@ -8,13 +8,11 @@ import { SearchGifsResponse, Gif } from '../interfaces/gif.interfaces';
 export class GifsService {
 
   private apiKey: string = 'WQY9UC0spB6ehbMFIiMSB20VixpqTJxL';
-
+  private url: string = 'https://api.giphy.com/v1/gifs';
   private _history: string[] = [];
-
   private limit: number = 10;
-
   public results: Gif[] = [];
-
+  
   get history() {
     return [...this._history];
   }
@@ -22,6 +20,7 @@ export class GifsService {
   constructor( private http: HttpClient ) {
     //en la inicialización del servicio si existe historial en localStorage lo retorna, sino un array vacío
     this._history = JSON.parse(localStorage.getItem('history')!) || [];
+    this.results = JSON.parse(localStorage.getItem('results')!) || [];
   }
 
   buscarGifs(query: string = '') {
@@ -37,10 +36,11 @@ export class GifsService {
       localStorage.setItem('history', JSON.stringify(this._history));
     }
 
-    this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=${this.limit}&api_key=${this.apiKey}`)
+    this.http.get<SearchGifsResponse>(`${this.url}/search?q=${query}&limit=${this.limit}&api_key=${this.apiKey}`)
         .subscribe( resp => {
           console.log(resp.data);
           this.results = resp.data;
+          localStorage.setItem('results', JSON.stringify(this.results));
         })
 
   }
