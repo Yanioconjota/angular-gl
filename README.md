@@ -29,4 +29,6 @@ Then just add your breakpoit in your **ts/js** files.
 ### Deployed examples:
 [angular-bases](http://janioisacura.com/bases-angular/)
 
+[gifs-app](http://janioisacura.com/gifs-app/)
+
 ### 😎 Happy coding
