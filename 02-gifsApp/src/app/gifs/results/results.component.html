@@ -1,4 +1,15 @@
-<p>Chuck Norris can sit in the corner of a round room. Chuck Norris invented airplanes because he was tired of being
-  the only person that could fly. Freddy Krueger has nightmares about Chuck Norris. Chuck Norris beats rock, paper,
-  scissors. Cannon balls, tanks, super destroyers, exploding stars — I could go on. Chuck Norris doesn’t cheat
-  death. He wins fair and square.</p>
+<div class="row">
+  <div *ngFor="let gif of results"
+       class="col-md-4 col-sm-6 col-xs-12">
+    <div class="card">
+      <img class="card-img-top w-100"
+           [src]="gif.images.original.url" [alt]="gif.title">
+      <div class="card-body">
+        <p class="card-text">
+          {{ gif.title }}
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
