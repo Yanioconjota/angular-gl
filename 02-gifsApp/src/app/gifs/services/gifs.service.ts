@@ -19,7 +19,10 @@ export class GifsService {
     return [...this._history];
   }
 
-  constructor( private http: HttpClient ) {}
+  constructor( private http: HttpClient ) {
+    //en la inicialización del servicio si existe historial en localStorage lo retorna, sino un array vacío
+    this._history = JSON.parse(localStorage.getItem('history')!) || [];
+  }
 
   buscarGifs(query: string = '') {
 
@@ -30,6 +33,8 @@ export class GifsService {
       this._history.unshift(query);
       //returnamos solo los últimos 10 valores agregados
       this._history = this._history.splice(0, 10);
+
+      localStorage.setItem('history', JSON.stringify(this._history));
     }
 
     this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=${this.limit}&api_key=${this.apiKey}`)
