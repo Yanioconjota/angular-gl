@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AppComponent } from './app.component';
+//Modules
+import { GifsModule } from './gifs/gifs.module';
 import { SharedModule } from './shared/shared.module';
+
+//Components
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,8 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    SharedModule
+    SharedModule,
+    GifsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

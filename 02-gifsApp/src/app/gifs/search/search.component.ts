@@ -1,0 +1,26 @@
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styles: [
+  ]
+})
+export class SearchComponent {
+
+  //Agregamos el signo de admiración para asegurarle a typeScript que no va a ser null
+  //mas info: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+
+  //Asignándole el <HTMLInputElement> al ElementRef tenemos acceso a todas las ayudas del native element, como focus, type, value, ets
+  @ViewChild('txtSearch') txtSearch!: ElementRef<HTMLInputElement>;
+
+  buscar() {
+
+    const value = this.txtSearch.nativeElement.value;
+
+    console.log(value);
+
+    this.txtSearch.nativeElement.value = '';
+  }
+
+}
