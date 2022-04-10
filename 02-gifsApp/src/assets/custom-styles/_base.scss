@@ -1,4 +1,14 @@
 /*  Custom SCSS */
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: $font;
+}
+
+#sidebar {
+  height: 100%;
+  min-height: 100vh;
+  min-width: 180px;
 }
