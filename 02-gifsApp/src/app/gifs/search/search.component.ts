@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GifsService } from '../services/gifs.service';
 
 @Component({
   selector: 'app-search',
@@ -14,11 +15,15 @@ export class SearchComponent {
   //Asignándole el <HTMLInputElement> al ElementRef tenemos acceso a todas las ayudas del native element, como focus, type, value, ets
   @ViewChild('txtSearch') txtSearch!: ElementRef<HTMLInputElement>;
 
+  constructor(private gifsService: GifsService) {}
+
   buscar() {
 
     const value = this.txtSearch.nativeElement.value;
 
-    console.log(value);
+    //console.log(value);
+
+    this.gifsService.buscarGifs(value);
 
     this.txtSearch.nativeElement.value = '';
   }
