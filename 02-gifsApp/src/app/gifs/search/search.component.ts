@@ -21,7 +21,8 @@ export class SearchComponent {
 
     const value = this.txtSearch.nativeElement.value;
 
-    //console.log(value);
+    //si se hace una búsqueda en blanco no retornamos nada
+    if ( value.trim().length === 0 ) { return; }
 
     this.gifsService.buscarGifs(value);
 
