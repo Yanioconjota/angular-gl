@@ -6,7 +6,8 @@
     <!-- disparamos el custom event onBuscar
     El $event es el termino que recibe el input dentro de app-pais-input -->
     <app-pais-input (onBuscar)="buscar($event)"
-                    (onDebounce)="sugerencias($event)"></app-pais-input>
+                    (onDebounce)="sugerencias($event)"
+                    placeholder="Buscar país..."></app-pais-input>
   </div>
 </div>
 
