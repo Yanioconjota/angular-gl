@@ -1,3 +1,32 @@
-<h1>Hola mundo!</h1>
-<p>Chuck Norris’ cowboy boots are made from real cowboys. Chuck Norris can make a slinky go upstairs. Chuck refers to himself in the fourth person. Chuck Norris does not sleep. He waits. Chuck Norris counted to infinity… twice.
-</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <h2>Búsquedas</h2>
+      <hr>
+      <div class="list-group">
+        <a class="list-group-item"
+           href="javascript:void(0)"
+           routerLink=""
+           [routerLinkActiveOptions]="{ exact: true }"
+           routerLinkActive="active">
+          Buscar país
+        </a>
+        <a class="list-group-item"
+           href="javascript:void(0)"
+           routerLink="region"
+           routerLinkActive="active">
+          Por región
+        </a>
+        <a class="list-group-item"
+           href="javascript:void(0)"
+           routerLink="capital"
+           routerLinkActive="active">
+          Por capital
+        </a>
+      </div>
+    </div>
+    <div class="col mt-3 mt-md-0">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
