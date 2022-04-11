@@ -26,4 +26,4 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
     VerPaisComponent
   ]
 })
-export class PaisesModule { }
+export class PaisModule { }
