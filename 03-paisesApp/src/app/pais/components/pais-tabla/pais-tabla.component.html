@@ -1,0 +1,27 @@
+<table class="table table-hover table-striped align-middle">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">#</th>
+      <th scope="col-1">Bandera</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Población</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pais of paises; let i=index" scope="row">
+      <td>{{ i + 1 }}</td>
+      <td>
+        <picture>
+          <source [srcset]="pais.flags.svg" type="image/svg+xml">
+          <img [src]="pais.flags.svg" alt="pais.name.common" class="img-small-thumbnail">
+        </picture>
+      </td>
+      <td>{{ pais.name.common }}</td>
+      <td>{{ pais.population | number }}</td>
+      <td>
+        <a [routerLink]="[ '/pais', pais.cca2 ]" href="javascript:void(0)">Ver...</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
