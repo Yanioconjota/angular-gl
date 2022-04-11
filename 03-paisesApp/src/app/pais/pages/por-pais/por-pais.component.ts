@@ -34,4 +34,10 @@ export class PorPaisComponent {
         });
   }
 
+  sugerencias(termino: string) {
+    //Elimina el error cuando empezamos a escribir
+    this.hayError = false;
+    console.log('sugerencias: ', termino);
+  }
+
 }
