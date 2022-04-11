@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 import { Pais } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
@@ -11,6 +11,9 @@ import { PaisService } from '../../services/pais.service';
   ]
 })
 export class VerPaisComponent implements OnInit {
+
+  //usamos signo de exclamación para inicializar la variable con un valor null
+  pais!: Pais;
 
   //Usamos activatedRoute para suscribirnos a cualquier cambio de la url
   constructor(private paisService: PaisService,
@@ -23,11 +26,10 @@ export class VerPaisComponent implements OnInit {
     //usamos el operador switchMap para simplificar los subscribes a nuestros observables, ya que el id viene de los params pero luego al llamar a buscarPaisPorCodigo tendríamos otro observable
     this.activatedRoute.params
         .pipe(
-          switchMap( ({id}) => this.paisService.buscarPaisPorCodigo(id))
+          switchMap( ({id}) => this.paisService.buscarPaisPorCodigo(id)),
+          tap(console.log)
         )
-        .subscribe(resp => {
-          console.log(resp);
-        })
+        .subscribe(pais => this.pais = pais[0]);
 
   }
 
