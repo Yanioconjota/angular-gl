@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { Pais } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
@@ -18,13 +19,16 @@ export class VerPaisComponent implements OnInit {
   ngOnInit(): void {
     //obtenemos el id de la desestructuración de params
     //el id lo definimos en app-routing.module y en la respuesta de nuestra petición viene como cca2
+    
+    //usamos el operador switchMap para simplificar los subscribes a nuestros observables, ya que el id viene de los params pero luego al llamar a buscarPaisPorCodigo tendríamos otro observable
     this.activatedRoute.params
-      .subscribe( ({ id }) => {
-        this.paisService.buscarPaisPorCodigo(id)
-            .subscribe((pais:Pais)=> {
-              console.log(pais);
-            })
-      });
+        .pipe(
+          switchMap( ({id}) => this.paisService.buscarPaisPorCodigo(id))
+        )
+        .subscribe(resp => {
+          console.log(resp);
+        })
+
   }
 
 }
