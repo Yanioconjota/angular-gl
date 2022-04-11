@@ -18,7 +18,8 @@ export class PorPaisComponent {
 
   buscar(termino: string) {
     this.hayError = false;
-    this.paisService.buscarPais(termino)
+    this.termino = termino;
+    this.paisService.buscarPais(this.termino)
         .subscribe({
           next: (paises: Pais[]) => {
             console.log(paises);
