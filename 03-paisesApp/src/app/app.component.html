@@ -1,29 +1,7 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-12 col-md-3">
-      <h2>Búsquedas</h2>
-      <hr>
-      <div class="list-group">
-        <a class="list-group-item"
-           href="javascript:void(0)"
-           routerLink=""
-           [routerLinkActiveOptions]="{ exact: true }"
-           routerLinkActive="active">
-          Buscar país
-        </a>
-        <a class="list-group-item"
-           href="javascript:void(0)"
-           routerLink="region"
-           routerLinkActive="active">
-          Por región
-        </a>
-        <a class="list-group-item"
-           href="javascript:void(0)"
-           routerLink="capital"
-           routerLinkActive="active">
-          Por capital
-        </a>
-      </div>
+      <app-sidebar></app-sidebar>
     </div>
     <div class="col mt-3 mt-md-0">
       <router-outlet></router-outlet>
