@@ -36,6 +36,14 @@ export class PaisService {
 
   }
 
+  buscarBloque(termino: string): Observable<Pais[]> {
+    
+    const url = `https://restcountries.com/v2/regionalbloc/${termino}`;
+
+    return this.http.get<Pais[]>(url);
+
+  }
+
   buscarPaisPorCodigo(id: string): Observable<Pais> {
     
     const url = `${this.apiUrl}/alpha/${id}`;
