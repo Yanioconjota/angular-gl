@@ -3,14 +3,14 @@
 </div>
 
 <ng-template #divPais>
-  <div class="row">
+  <div class="row animate__animated animate__bounceInRight">
     <div class="col-12">
       <h1>{{ pais.name.common }}</h1>
       <hr>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row animate__animated animate__bounceInLeft">
     <div class="col-4">
       <picture>
         <source [srcset]="pais.flags.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
         <img [src]="pais.coatOfArms.png" alt="pais.name.common" class="img-thumbnail">
       </picture>
     </div>
-    <div class="col">
+    <div class="col animate__animated animate__bounceInRight">
       <ul class="list-group">
         <li class="list-group-item">
           <strong>Capital: </strong>{{ pais.capital }}
@@ -62,12 +62,14 @@
     </div>
   </div>
   <hr>
-  <h3>Traducciones</h3>
-  <div class="row">
-    <div class="col">
-      <span *ngFor="let translation of translations" class="badge bg-primary me-1">
-        {{ translation.common }}
-      </span>
+  <div class="animate__animated animate__bounceInUp">
+    <h3>Traducciones</h3>
+    <div class="row">
+      <div class="col">
+        <span *ngFor="let translation of translations" class="badge bg-primary me-1">
+          {{ translation.common }}
+        </span>
+      </div>
     </div>
   </div>
 </ng-template>
