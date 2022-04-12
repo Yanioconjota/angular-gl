@@ -1,6 +1,3 @@
-<h2>Por capital</h2>
-<hr>
-
 <div class="row">
   <div class="col">
     <!-- disparamos el custom event onBuscar
@@ -18,8 +15,14 @@
   No se encontró nada con el término {{ termino }}
 </div>
 
-<div *ngIf="paises.length > 0" class="row">
-  <div class="col">
-    <app-pais-tabla [paises]="paises"></app-pais-tabla>
-  </div>
+<div class="loader-wrapper" *ngIf="loading; else divPais">
+  <div id="loader" class="loader"></div>
 </div>
+
+<ng-template #divPais>
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+  </div>
+</ng-template>
