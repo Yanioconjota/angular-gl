@@ -12,9 +12,20 @@ $custom-colors: (
   "transparent": $transparent
 );
 
+//custom display font size map
+$custom-display-font-sizes: (
+  7: 2rem,
+  8: 1.5rem,
+  9:.95rem,
+  10:.85rem
+);
+
 $nav-link-color: $info;
 $nav-link-hover-color: darken($color: $nav-link-color, $amount: 30%);
+//merge color maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
+//merge font sizes
+$display-font-sizes: map-merge($custom-display-font-sizes, $display-font-sizes );
 // Merge the maps
 
 
@@ -29,10 +40,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/forms";
-// @import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/buttons";
 // @import "~bootstrap/scss/transitions";
 // @import "~bootstrap/scss/dropdown";
-// @import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/button-group";
 // @import "~bootstrap/scss/nav";
 // @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/card";
