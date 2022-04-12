@@ -98,3 +98,8 @@ export interface Translation {
     official: string;
     common:   string;
 }
+
+export interface RegionalBloc {
+    symbol: string;
+    name: string;
+}
