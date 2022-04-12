@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
-import { Pais } from '../../interfaces/pais.interface';
+import { Pais, Translation } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -14,6 +14,9 @@ export class VerPaisComponent implements OnInit {
 
   //usamos signo de exclamación para inicializar la variable con un valor null
   pais!: Pais;
+  translations!: Translation[];
+  languages!: any;
+  currencies!:any;
 
   //Usamos activatedRoute para suscribirnos a cualquier cambio de la url
   constructor(private paisService: PaisService,
@@ -29,7 +32,17 @@ export class VerPaisComponent implements OnInit {
           switchMap( ({id}) => this.paisService.buscarPaisPorCodigo(id)),
           tap(console.log)
         )
-        .subscribe(pais => this.pais = pais[0]);
+        .subscribe(pais => {
+          this.pais = pais[0];
+          this.translations = Object.values( this.pais.translations );
+          
+          this.languages = Object.keys(this.pais.languages)
+              .map((key) => (
+                { type: key, value: this.pais.languages[key]}
+              ));
+          this.currencies = Object.values( this.pais.currencies );
+          console.log(this.currencies);
+        });
 
   }
 

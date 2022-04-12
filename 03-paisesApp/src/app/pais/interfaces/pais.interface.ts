@@ -7,13 +7,14 @@ export interface Pais {
     independent:  boolean;
     status:       string;
     unMember:     boolean;
-    currencies:   Currencies;
+    currencies:   any;
     idd:          Idd;
     capital:      string[];
     altSpellings: string[];
     region:       string;
     subregion:    string;
-    languages:    Languages;
+    //languages?:    { [key: string]: Languages };
+    languages: any;
     translations: { [key: string]: Translation };
     latlng:       number[];
     landlocked:   boolean;
@@ -41,11 +42,13 @@ export interface Car {
 }
 
 export interface CoatOfArms {
+    png?: string;
+    svg?: string;
 }
 
-export interface Currencies {
+/* export interface Currencies {
     AUD: Aud;
-}
+} */
 
 export interface Aud {
     name:   string;
@@ -71,9 +74,10 @@ export interface Idd {
     suffixes: string[];
 }
 
-export interface Languages {
-    eng: string;
-}
+/* export interface Languages {
+    key: string;
+    value: string;
+} */
 
 export interface Maps {
     googleMaps:     string;
