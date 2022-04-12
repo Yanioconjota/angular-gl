@@ -30,9 +30,9 @@ export class VerPaisComponent implements OnInit {
     this.activatedRoute.params
         .pipe(
           switchMap( ({id}) => this.paisService.buscarPaisPorCodigo(id)),
-          tap(console.log)
+          //tap(console.log)
         )
-        .subscribe(pais => {
+        .subscribe((pais:any) => {
           this.pais = pais[0];
           this.translations = Object.values( this.pais.translations );
           
@@ -41,7 +41,6 @@ export class VerPaisComponent implements OnInit {
                 { type: key, value: this.pais.languages[key]}
               ));
           this.currencies = Object.values( this.pais.currencies );
-          console.log(this.currencies);
         });
 
   }

@@ -26,7 +26,7 @@ export class PorCapitalComponent {
         .subscribe({
           next: (paises: Pais[]) => {
             this.loading = false;
-            console.log(paises);
+            //console.log(paises);
             this.paises = paises;
           },
           error: (err: any) => {
@@ -43,7 +43,7 @@ export class PorCapitalComponent {
     //Elimina el error cuando empezamos a escribir
     this.hayError = false;
     this.loading = false;
-    console.log('sugerencias: ', termino);
+    //console.log('sugerencias: ', termino);
   }
 
 }
