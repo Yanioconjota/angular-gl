@@ -1,25 +1,28 @@
-<h2>Por región</h2>
-<hr>
-
-<div class="row">
-  <div class="col">
-    <!-- disparamos el custom event onBuscar
-    El $event es el termino que recibe el input dentro de app-pais-input -->
-    <app-pais-input (onBuscar)="buscar($event)"
-                    (onDebounce)="sugerencias($event)"
-                    placeholder="Buscar región..."></app-pais-input>
-  </div>
-</div>
+<h5>Seleccione la región</h5>
 
 <hr>
 
-<div *ngIf="hayError"
-     class="alert alert-danger">
-  No se encontró nada con el término {{ termino }}
-</div>
-
-<div *ngIf="paises.length > 0" class="row">
+<div class="row mb-4">
   <div class="col">
-    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    <div class="btn-group w-100">
+      <button *ngFor="let region of regiones"
+            class="btn btn-outline-primary"
+            (click)="activarRegion(region)"
+            [ngClass]="{active: regionActiva === region}">
+      {{ region }}
+    </button>
+    </div>
   </div>
 </div>
+
+<div class="loader-wrapper" *ngIf="loading; else divPais">
+  <div id="loader" class="loader"></div>
+</div>
+
+<ng-template #divPais>
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+  </div>
+</ng-template>

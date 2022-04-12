@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pais } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
@@ -8,37 +8,40 @@ import { PaisService } from '../../services/pais.service';
   styles: [
   ]
 })
-export class PorRegionComponent {
+export class PorRegionComponent implements OnInit {
 
   termino: string = '';
   hayError: boolean = false;
   paises: Pais[] = [];
   placeholder: string = '';
+  regiones: string[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+  regionActiva: string = 'Africa';
+  loading: boolean = false;
 
   constructor(private paisService: PaisService) { }
 
-  buscar(termino: string) {
-    this.hayError = false;
-    this.termino = termino;
-    this.paisService.buscarRegion(this.termino)
+  ngOnInit(): void {
+    this.activarRegion(this.regionActiva);
+    
+  }
+
+  activarRegion(region: string) {
+    this.loading = true;
+    this.regionActiva = region;
+    this.paisService.buscarRegion(region)
         .subscribe({
           next: (paises: Pais[]) => {
+            this.loading = false;
             console.log(paises);
             this.paises = paises;
           },
           error: (err: any) => {
+            this.loading = false;
             console.log('Error');
             console.info(err);
-            this.hayError = true;
             this.paises = [];
           }
         });
-  }
-
-  sugerencias(termino: string) {
-    //Elimina el error cuando empezamos a escribir
-    this.hayError = false;
-    console.log('sugerencias: ', termino);
   }
 
 }
