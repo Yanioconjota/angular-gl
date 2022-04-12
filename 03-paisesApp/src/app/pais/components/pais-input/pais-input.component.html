@@ -1,4 +1,6 @@
-<form autocomplete="off" (ngSubmit)="buscar()">
+<form autocomplete="off"
+      (ngSubmit)="buscar()"
+      class="animate__animated animate__bounceInDown">
   <!-- Emite desde su componente el término que recibe a través del [(ngModel)] -->
   <input type="text"
           name="termino"
@@ -6,4 +8,5 @@
           (input)="teclaPresionada()"
           class="form-control"
           [placeholder]="placeholder">
+  <hr>
 </form>
