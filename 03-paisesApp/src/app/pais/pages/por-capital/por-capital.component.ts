@@ -19,6 +19,7 @@ export class PorCapitalComponent {
   constructor(private paisService: PaisService) { }
 
   buscar(termino: string) {
+    if (termino === '') { return; }
     this.loading = true;
     this.hayError = false;
     this.termino = termino;
@@ -32,7 +33,7 @@ export class PorCapitalComponent {
           error: (err: any) => {
             this.loading = false;
             console.log('Error');
-            console.info(err);
+            //console.info(err);
             this.hayError = true;
             this.paises = [];
           }
