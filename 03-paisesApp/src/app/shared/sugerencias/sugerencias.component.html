@@ -1,0 +1,10 @@
+<ul *ngIf="mostrarSugerencias" class="list-group">
+  <li *ngFor="let pais of paisesSugeridos" [routerLink]="['/pais/', pais.cca2]"
+    class="list-group-item list-group-item-action clickable-item animate__animated animate__fadeIn">
+    {{ pais.name.common }}
+  </li>
+  <li *ngIf="paisesSugeridos.length > 0" (click)="buscarSugerido(termino)"
+    class="list-group-item list-group-item-action clickable-item animate__animated animate__fadeIn">
+    Buscar por termino: {{ termino }}
+  </li>
+</ul>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { TipoSugerencia } from 'src/app/types/tipoSugerencia.types';
 import { Pais } from '../../interfaces/pais.interface';
+import { Ui } from '../../interfaces/ui.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -13,8 +15,11 @@ export class PorCapitalComponent {
   termino: string = '';
   hayError: boolean = false;
   paises: Pais[] = [];
+  paisesSugeridos: Pais[] = [];
   placeholder: string = '';
   loading: boolean = false;
+  mostrarSugerencias: boolean = false;
+  tipoSugerencia: string = TipoSugerencia.capital;
 
   constructor(private paisService: PaisService) { }
 
@@ -23,6 +28,7 @@ export class PorCapitalComponent {
     this.loading = true;
     this.hayError = false;
     this.termino = termino;
+    this.mostrarSugerencias = false;
     this.paisService.buscarCapital(this.termino)
         .subscribe({
           next: (paises: Pais[]) => {
@@ -40,11 +46,11 @@ export class PorCapitalComponent {
         });
   }
 
-  sugerencias(termino: string) {
-    //Elimina el error cuando empezamos a escribir
-    this.hayError = false;
-    this.loading = false;
-    //console.log('sugerencias: ', termino);
+  sugerencias(e: Ui) {
+    this.hayError = e.error;
+    this.loading = e.loading;
+    this.termino = e.termino;
+    this.mostrarSugerencias = true;
   }
 
 }

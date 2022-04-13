@@ -3,23 +3,13 @@
     <!-- disparamos el custom event onBuscar
     El $event es el termino que recibe el input dentro de app-pais-input -->
     <app-pais-input (onBuscar)="buscar($event)"
-                    (onDebounce)="sugerencias($event)"
+                    (onDebounce)="appSugerencias.sugerencias($event)"
                     placeholder="Buscar país..."></app-pais-input>
   </div>
 </div>
 
-<ul *ngIf="mostrarSugerencias"
-    class="list-group">
-  <li *ngFor="let pais of paisesSugeridos"
-      [routerLink]="['/pais/', pais.cca2]"
-      class="list-group-item list-group-item-action clickable-item animate__animated animate__fadeIn">
-    {{ pais.name.common }}
-  </li>
-  <li (click)="buscarSugerido(termino)"
-      class="list-group-item list-group-item-action clickable-item animate__animated animate__fadeIn">
-    Buscar por termino: {{ termino }}
-  </li>
-</ul>
+<app-sugerencias #appSugerencias [tipoSugerencia]="tipoSugerencia" [paisesSugeridos]="paisesSugeridos"
+  [mostrarSugerencias]="mostrarSugerencias" (onSugerencia)="sugerencias($event)" (onBuscarPaisesSugeridos)="buscar($event)"></app-sugerencias>
 
 <app-error [hayError]="hayError" [termino]="termino"></app-error>
 

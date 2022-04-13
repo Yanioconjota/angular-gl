@@ -4,13 +4,15 @@ import {RouterModule} from '@angular/router';
 //Components
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ErrorComponent } from './error/error.component';
+import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    ErrorComponent
+    ErrorComponent,
+    SugerenciasComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { ErrorComponent } from './error/error.component';
   ],
   exports: [
     SidebarComponent,
-    ErrorComponent
+    ErrorComponent,
+    SugerenciasComponent
   ]
 })
 export class SharedModule { }
