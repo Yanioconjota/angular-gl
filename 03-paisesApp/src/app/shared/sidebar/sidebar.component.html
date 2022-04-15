@@ -1,4 +1,12 @@
-<h2 class="animate__animated animate__bounceInLeft">Búsquedas</h2>
+<div class="d-flex justify-content-between animate__animated animate__bounceInLeft">
+  <h2 class="me-5">Búsquedas</h2>
+  <select class="form-select" aria-label="Default select example" (change)="changeLang($event)">
+    <option selected>Idioma</option>
+    <option [selected]="lang === 'en'" value="en">English</option>
+    <option [selected]="lang === 'de'" value="de">Deutch</option>
+    <option [selected]="lang === 'ar'" value="ar">عربى</option>
+  </select>
+</div>
   <hr class="animate__animated animate__bounceInLeft">
   <div class="list-group animate__animated animate__bounceInUp">
     <a class="list-group-item"
