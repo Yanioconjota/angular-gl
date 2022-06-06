@@ -2,7 +2,8 @@
   <h1>Angular pipes</h1>
 
   <p>{{ this.nombre | uppercase }} - string: {{this.nombre}} | uppercase</p>
-  <p>{{ this.numero | currency }} - number: {{this.numero}} | currency</p>
+  <p>{{ this.subtitulo | capitalize }} - string: {{this.subtitulo}} | capitalize (Custom Pipe)</p>
+  <p>{{ this.numero | currency:'ARS$':'symbol':'.0-0' }} - number: {{this.numero}} | currency:'ARS$':'symbol':'.0-0'</p>
   <p>{{ this.obj | json }} - object | json</p>
 </div>
 
