@@ -1,1 +1,7 @@
-<h1>Holis</h1>
+<h1>Angular pipes</h1>
+
+<div>{{ this.nombre | uppercase }} - string: {{this.nombre}} | uppercase</div>
+<div>{{ this.numero | currency }} - number: {{this.numero}} | currency</div>
+<div>{{ this.obj | json }} - object | json</div>
+
+<button (click)="clg()">Mostrar en consola</button>
