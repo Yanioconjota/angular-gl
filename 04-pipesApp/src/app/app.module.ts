@@ -10,12 +10,15 @@ import localePt from '@angular/common/locales/pt';
 import localeEn from '@angular/common/locales/en';
 import localeEsAr from '@angular/common/locales/es-AR';
 
-import { AppComponent } from './app.component';
 
 //PrimeNG
-import {ButtonModule} from 'primeng/button';
-import {CardModule} from 'primeng/card';
+import { PrimeNgModule } from "./modules/prime-ng/prime-ng.module";
+
+//Custom Pipes
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+
+//Components
+import { AppComponent } from './app.component';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localePy, 'es');
@@ -32,8 +35,7 @@ registerLocaleData(localeEsAr, 'es-Ar');
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
-    ButtonModule,
-    CardModule
+    PrimeNgModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
   bootstrap: [AppComponent]
