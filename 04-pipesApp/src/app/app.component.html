@@ -8,5 +8,25 @@
 </div>
 
 <button pButton
-        label="Mostrar en consola"
-        (click)="clg()"></button>
+        (click)="clg()"
+        iconPos="right"
+        icon="pi pi-info-circle"
+        label="Mostrar en consola"></button>
+
+<p-card header="{{ this.nombre | titlecase }}"
+        subheader="{{ this.subtitulo | capitalize }}"
+        [style]="{width: '360px',
+          margin: '20px 0'}"
+        styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <img alt="Card" src="assets/images/EpicAvatar.png">
+  </ng-template>
+  <p>{{ this.contenido }}</p>
+  <ng-template pTemplate="footer">
+    <p-button label="Save"
+              icon="pi pi-check"></p-button>
+    <p-button label="Cancel"
+              icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}">
+    </p-button>
+  </ng-template>
+</p-card>
