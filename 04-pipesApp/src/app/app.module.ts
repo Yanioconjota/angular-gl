@@ -10,11 +10,13 @@ import localePt from '@angular/common/locales/pt';
 import localeEn from '@angular/common/locales/en';
 import localeEsAr from '@angular/common/locales/es-AR';
 
-//shared
+//custom modules
 import { SharedModule } from './shared/shared.module';
+import { VentasModule } from './ventas/ventas.module';
 
 //Components
 import { AppComponent } from './app.component';
+
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localePy, 'es');
@@ -30,7 +32,8 @@ registerLocaleData(localeEsAr, 'es-Ar');
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    VentasModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
   bootstrap: [AppComponent]
