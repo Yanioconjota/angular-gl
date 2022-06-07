@@ -14,7 +14,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     FirstExampleComponent
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    PrimeNgModule
   ],
   imports: [
     CommonModule,

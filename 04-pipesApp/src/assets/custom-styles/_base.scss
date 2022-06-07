@@ -10,6 +10,10 @@ body {
   background-color: var(--surface-b);
 }
 
+a {
+  text-decoration: none;
+}
+
 .text-layout {
   color: var(--text-color);
 }
