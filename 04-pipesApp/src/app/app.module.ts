@@ -11,8 +11,9 @@ import localeEn from '@angular/common/locales/en';
 import localeEsAr from '@angular/common/locales/es-AR';
 
 
-//PrimeNG
+//Custom modules
 import { PrimeNgModule } from "./modules/prime-ng/prime-ng.module";
+import { SharedModule } from './shared/shared.module';
 
 //Custom Pipes
 import { CapitalizePipe } from './pipes/capitalize.pipe';
@@ -29,13 +30,14 @@ registerLocaleData(localeEsAr, 'es-Ar');
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizePipe
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     PrimeNgModule,
+    SharedModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
   bootstrap: [AppComponent]
