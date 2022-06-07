@@ -1,0 +1,48 @@
+
+
+<div class="text-layout">
+  <app-menu></app-menu>
+  <h1>Angular pipes</h1>
+
+  <p>{{ this.nombre | uppercase }} - string: {{this.nombre}} | uppercase</p>
+  <p>{{ this.subtitulo | capitalize }} - string: {{this.subtitulo}} | capitalize (Custom Pipe)</p>
+  <p>{{ this.numero | currency:'ARS$':'symbol':'.0-0' }} - number: {{this.numero}} | currency:'ARS$':'symbol':'.0-0'</p>
+  <p>{{ this.obj | json }} - object | json</p>
+  <h3>Importante:</h3>
+  <p>para agregar traducción de currency a nuestra localidad debemos agregar lo siguiente <em>(omitiendo las comillas dobles)</em> a nuestro módulo:
+  </p>
+  <pre>
+    {{ "import { LOCALE_ID, NgModule } from '@angular/core';" | json }}
+    {{ "import { registerLocaleData } from '@angular/common';" |  json }}
+
+    // importar locales
+    import localeEsAr from '@angular/common/locales/es-AR';
+
+    providers: {{"[{ provide: LOCALE_ID, useValue: 'es-Ar' }]" | json }},
+  </pre>
+</div>
+
+
+<button pButton
+        (click)="clg()"
+        iconPos="right"
+        icon="pi pi-info-circle"
+        label="Mostrar en consola"></button>
+
+<p-card header="{{ this.nombre | titlecase }}"
+        subheader="{{ this.subtitulo | capitalize }}"
+        [style]="{width: '360px',
+          margin: '20px 0'}"
+        styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <img alt="Card" src="assets/images/EpicAvatar.png">
+  </ng-template>
+  <p>{{ this.contenido }}</p>
+  <ng-template pTemplate="footer">
+    <p-button label="Save"
+              icon="pi pi-check"></p-button>
+    <p-button label="Cancel"
+              icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}">
+    </p-button>
+  </ng-template>
+</p-card>
