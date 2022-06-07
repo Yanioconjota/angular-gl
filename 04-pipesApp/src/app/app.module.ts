@@ -16,6 +16,7 @@ import { VentasModule } from './ventas/ventas.module';
 
 //Components
 import { AppComponent } from './app.component';
+import { AppRouterModule } from './app-router.module';
 
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
@@ -31,6 +32,7 @@ registerLocaleData(localeEsAr, 'es-Ar');
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRouterModule,
     CommonModule,
     SharedModule,
     VentasModule

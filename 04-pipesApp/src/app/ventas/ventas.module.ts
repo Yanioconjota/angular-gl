@@ -16,6 +16,12 @@ import { OrdenarComponent } from './pages/ordenar/ordenar.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NumerosComponent,
+    NoComunesComponent,
+    BasicosComponent,
+    OrdenarComponent
   ]
 })
 export class VentasModule { }
