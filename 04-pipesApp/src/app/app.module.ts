@@ -5,10 +5,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 
 // importar locales
-import localePy from '@angular/common/locales/es-PY';
-import localePt from '@angular/common/locales/pt';
-import localeEn from '@angular/common/locales/en';
 import localeEsAr from '@angular/common/locales/es-AR';
+import localeEsFr from '@angular/common/locales/fr';
 
 //custom modules
 import { SharedModule } from './shared/shared.module';
@@ -18,12 +16,9 @@ import { VentasModule } from './ventas/ventas.module';
 import { AppComponent } from './app.component';
 import { AppRouterModule } from './app-router.module';
 
-
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
-registerLocaleData(localePy, 'es');
-registerLocaleData(localePt, 'pt');
-registerLocaleData(localeEn, 'en');
 registerLocaleData(localeEsAr, 'es-Ar');
+registerLocaleData(localeEsFr, 'fr');
 
 @NgModule({
   declarations: [
