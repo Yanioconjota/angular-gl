@@ -129,13 +129,13 @@
       dobles)</em> a nuestro módulo:
   </p>
   <pre>
-    {{ "import { LOCALE_ID, NgModule } from '@angular/core';" | json }}
-    {{ "import { registerLocaleData } from '@angular/common';" |  json }}
+    {{ "import { LOCALE_ID, NgModule } from '@angular/core';" }}
+    {{ "import { registerLocaleData } from '@angular/common';" }}
 
     // importar locales
     import localeEsAr from '@angular/common/locales/es-AR';
 
-    providers: {{"[{ provide: LOCALE_ID, useValue: 'es-Ar' }]" | json }},
+    providers: {{"[{ provide: LOCALE_ID, useValue: 'es-Ar' }]" }},
   </pre>
    <p>para definir por defecto el pipe currency a nuestra moneda local  agregamos lo siguiente <em>(omitiendo las comillas
       dobles)</em> a nuestro módulo:
