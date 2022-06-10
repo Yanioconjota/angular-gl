@@ -6,42 +6,42 @@
      class="p-button-warning mb-3"
      href="https://angular.io/api/common/DecimalPipe">Más info</a>
   <div class="grid">
-    <div class="col-6">
+    <div class="col-12 md:-col-6 lg:col-4">
       <p-card header="Ventas netas"
               subheader="{{ this.ventasNetas }} | number">
       <i class="pi pi-dollar"></i>
       {{this.ventasNetas | number }}
       </p-card>
     </div>
-    <div class="col-6">
+    <div class="col-12 md:-col-6 lg:col-4">
       <p-card header="Ventas netas suma"
               subheader="{{ this.ventasNetas }} + 1111500.55 | number">
       <i class="pi pi-dollar"></i>
       {{this.ventasNetas + 1111500.55 | number }}
       </p-card>
     </div>
-    <div class="col-6">
+    <div class="col-12 md:-col-6 lg:col-4">
       <p-card header="Ventas netas suma locale en"
               subheader="{{ this.ventasNetas }} + 1111500.55 | number">
       <i class="pi pi-dollar"></i>
       {{this.ventasNetas + 1111500.55 | number:'':'en' }}
       </p-card>
     </div>
-    <div class="col-6">
+    <div class="col-12 md:-col-6 lg:col-4">
       <p-card header="Valor pi"
               subheader="{{ this.valorPi }} | number:'1.1-2'">
       <i class="pi pi-reply"></i>
       {{this.valorPi | number:'1.1-2' }}
       </p-card>
     </div>
-    <div class="col-6">
+    <div class="col-12 md:-col-6 lg:col-4">
       <p-card header="Valor pi"
               subheader="{{ this.valorPi }} | number:'3.1-5'">
       <i class="pi pi-reply"></i>
       {{this.valorPi | number:'3.1-5' }}
       </p-card>
     </div>
-    <div class="col-6">
+    <div class="col-12 md:-col-6 lg:col-4">
       <p-card header="Valor pi locale en"
               subheader="{{ this.valorPi }} | number:'1.2-2':'en'">
       <i class="pi pi-reply"></i>
@@ -59,28 +59,28 @@
      class="p-button-warning mb-3"
      href="https://angular.io/api/common/CurrencyPipe">Más info</a>
     <div class="grid">
-      <div class="col-6">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Ventas brutas"
                 subheader="{{ this.ventasNetas }} | currency">
         <!-- <i class="pi pi-dollar"></i> -->
         {{this.ventasNetas | currency }}
         </p-card>
       </div>
-      <div class="col-6">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Ventas brutas"
                 subheader="{{ this.ventasNetas }} | currency:'USD'">
         <!-- <i class="pi pi-dollar"></i> -->
         {{this.ventasNetas | currency:'USD' }}
         </p-card>
       </div>
-      <div class="col-6">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Ventas brutas"
                 subheader="{{ this.ventasNetas }} | currency:'':'ARS$'">
         <!-- <i class="pi pi-dollar"></i> -->
         {{this.ventasNetas | currency:'ARS$' }}
         </p-card>
       </div>
-      <div class="col-6">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Ventas brutas"
                 subheader="{{ this.ventasNetas }} | currency:'USD':'symbol-narrow':'1.5-6'">
         <!-- <i class="pi pi-dollar"></i> -->
@@ -99,21 +99,21 @@
      class="p-button-warning mb-3"
      href="https://angular.io/api/common/PercentPipe">Más info</a>
     <div class="grid">
-      <div class="col-4">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Porcentaje"
                 subheader="{{ this.porcentaje }} | percent">
         <!-- <i class="pi pi-dollar"></i> -->
         {{this.porcentaje | percent }}
         </p-card>
       </div>
-      <div class="col-4">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Porcentaje"
                 subheader="{{ this.porcentaje }} | percent:'2.2-2'">
         <!-- <i class="pi pi-dollar"></i> -->
         {{this.porcentaje | percent:'2.2-2' }}
         </p-card>
       </div>
-      <div class="col-4">
+      <div class="col-12 md:-col-6 lg:col-4">
         <p-card header="Porcentaje"
                 subheader="{{ this.porcentaje }} | percent:'2.2-2':'en'">
         <!-- <i class="pi pi-dollar"></i> -->
