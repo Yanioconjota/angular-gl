@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -32,7 +32,10 @@ registerLocaleData(localeEsFr, 'fr');
     SharedModule,
     VentasModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-Ar' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'ARS' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

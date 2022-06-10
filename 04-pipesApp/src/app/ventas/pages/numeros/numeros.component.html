@@ -51,6 +51,76 @@
   </div>
 </div>
 
+<div class="text-layout">
+  <p>Currency Pipe</p>
+  <a pButton
+     target="_blank"
+     class="p-button-warning mb-3"
+     href="https://angular.io/api/common/CurrencyPipe">Más info</a>
+    <div class="grid">
+      <div class="col-6">
+        <p-card header="Ventas brutas"
+                subheader="{{ this.ventasNetas }} | currency">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.ventasNetas | currency }}
+        </p-card>
+      </div>
+      <div class="col-6">
+        <p-card header="Ventas brutas"
+                subheader="{{ this.ventasNetas }} | currency:'USD'">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.ventasNetas | currency:'USD' }}
+        </p-card>
+      </div>
+      <div class="col-6">
+        <p-card header="Ventas brutas"
+                subheader="{{ this.ventasNetas }} | currency:'':'ARS$'">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.ventasNetas | currency:'ARS$' }}
+        </p-card>
+      </div>
+      <div class="col-6">
+        <p-card header="Ventas brutas"
+                subheader="{{ this.ventasNetas }} | currency:'USD':'symbol-narrow':'1.5-6'">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.ventasNetas | currency:'USD':'symbol-narrow':'1.5-6' }}
+        </p-card>
+      </div>
+
+    </div>
+</div>
+
+<div class="text-layout">
+  <p>Percent Pipe</p>
+  <a pButton
+     target="_blank"
+     class="p-button-warning mb-3"
+     href="https://angular.io/api/common/PercentPipe">Más info</a>
+    <div class="grid">
+      <div class="col-4">
+        <p-card header="Porcentaje"
+                subheader="{{ this.porcentaje }} | percent">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.porcentaje | percent }}
+        </p-card>
+      </div>
+      <div class="col-4">
+        <p-card header="Porcentaje"
+                subheader="{{ this.porcentaje }} | percent:'2.2-2'">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.porcentaje | percent:'2.2-2' }}
+        </p-card>
+      </div>
+      <div class="col-4">
+        <p-card header="Porcentaje"
+                subheader="{{ this.porcentaje }} | percent:'2.2-2':'en'">
+        <!-- <i class="pi pi-dollar"></i> -->
+        {{this.porcentaje | percent:'2.2-2':'en' }}
+        </p-card>
+      </div>
+    </div>
+</div>
+
 <div class="text-layout pb-5">
   <h3>Importante:</h3>
   <p>para agregar traducción local a nuestros pipes,  debemos agregar lo siguiente <em>(omitiendo las comillas
@@ -65,4 +135,13 @@
 
     providers: {{"[{ provide: LOCALE_ID, useValue: 'es-Ar' }]" | json }},
   </pre>
+   <p>para definir por defecto el pipe currency a nuestra moneda local  agregamos lo siguiente <em>(omitiendo las comillas
+      dobles)</em> a nuestro módulo:
+  </p>
+  <pre>
+    {{ "import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';" | json }}
+
+    providers: {{"[{ provide: DEFAULT_CURRENCY_CODE, useValue: 'ARS' }]" | json }},
+  </pre>
+  <p>Recuerda que providers es un array y si ya tienes devinido el LOCALE_ID, agrega el nuevo provide como otro item</p>
 </div>
